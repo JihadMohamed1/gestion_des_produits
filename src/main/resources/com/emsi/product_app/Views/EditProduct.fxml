@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="235.0" prefWidth="231.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.emsi.product_app.Views.EditProductController">
+    <Label text="Nom :" />
+    <TextField fx:id="nomField" />
+
+    <Label text="Prix :" />
+    <TextField fx:id="prixField" />
+
+    <Label text="Description :" />
+    <TextField fx:id="descriptionField" />
+
+    <Label text="Quantité :" />
+    <TextField fx:id="quantiteField" />
+
+    <Label text="Catégorie :" />
+    <ComboBox fx:id="categorieComboBox" prefHeight="25.0" prefWidth="242.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Button onAction="#handleModifierButton" text="Modifier" />
+    <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handlebackButton" text="back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+</VBox>

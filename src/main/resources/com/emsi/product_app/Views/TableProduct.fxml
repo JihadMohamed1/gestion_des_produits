@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.emsi.product_app.Views.TableProductController">
+    <children>
+
+        <TableView fx:id="tableView" layoutY="34.0" prefHeight="366.0" prefWidth="561.0">
+            <columns>
+                <TableColumn text="Nom">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="nom" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Prix">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="prix" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Description">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="description" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Quantité">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="quantite" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Catégorie">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="categorie" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Supprieme">
+                    <cellFactory>
+                        <PropertyValueFactory property="Supprieme" />
+                    </cellFactory>
+                </TableColumn>
+                <TableColumn text="Modifier">
+                    <cellFactory>
+                        <PropertyValueFactory property="Modifier" />
+                    </cellFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+      <Button fx:id="loginButton" layoutX="95.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="25.0" prefWidth="377.0" text="Ajoute Product" />
+
+    </children>
+
+</AnchorPane>
