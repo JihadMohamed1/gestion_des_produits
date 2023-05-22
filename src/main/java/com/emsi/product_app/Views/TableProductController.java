@@ -24,6 +24,8 @@ public class TableProductController {
     private TableView<Product> tableView;
     @FXML
     private Button loginButton;
+    @FXML
+    private Button loginButton1;
 
     public void initialize() {
         ProductServices productServices=new ProductServices();
@@ -158,6 +160,30 @@ public void handleAddButton()
 
         // Effectue d'autres opérations après la fermeture de la fenêtre de modification
         // ...
+    }
+    public void handllogoutButton() {
+        try {
+            // Charger la vue du tableau
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Authentification.fxml"));
+            Parent root = loader.load();
+
+            // Obtenir le contrôleur du tableau
+            AuthentificationController authentificationController = loader.getController();
+
+            // Configurer d'autres informations nécessaires pour le contrôleur du tableau
+
+            // Créer une nouvelle scène avec la vue du tableau
+            Scene scene = new Scene(root);
+
+            // Obtenir la scène actuelle à partir du bouton de connexion (ou d'une autre référence appropriée)
+            Stage currentStage = (Stage) loginButton1.getScene().getWindow();
+
+            // Définir la nouvelle scène sur le stage actuel
+            currentStage.setScene(scene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

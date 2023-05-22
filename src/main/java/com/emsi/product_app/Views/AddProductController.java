@@ -58,6 +58,7 @@ public class AddProductController {
         ProductServices productServices=new ProductServices();
         Product product=new Product(nom,prix,description,quantite, categorieServices.findByName(categorie));
         productServices.save(product);
+        handlebackButton();
         // Logique pour ajouter l'élément à la base de données ou à la liste du tableau
 
         closeForm(); // Fermer la fenêtre du formulaire après l'ajout
@@ -92,5 +93,8 @@ public class AddProductController {
             e.printStackTrace();
         }
     }
+
+
+
 }
 
