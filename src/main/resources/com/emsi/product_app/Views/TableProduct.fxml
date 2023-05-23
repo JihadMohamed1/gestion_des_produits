@@ -7,7 +7,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.emsi.product_app.Views.TableProductController">
     <children>
 
-        <TableView fx:id="tableView" layoutY="34.0" prefHeight="366.0" prefWidth="561.0">
+        <TableView fx:id="tableView" layoutY="34.0" prefHeight="366.0" prefWidth="599.0">
             <columns>
                 <TableColumn text="Nom">
                     <cellValueFactory>
@@ -39,16 +39,17 @@
                         <PropertyValueFactory property="Supprieme" />
                     </cellFactory>
                 </TableColumn>
-                <TableColumn text="Modifier">
+                <TableColumn prefWidth="117.0" text="Modifier">
                     <cellFactory>
                         <PropertyValueFactory property="Modifier" />
                     </cellFactory>
                 </TableColumn>
             </columns>
         </TableView>
-      <Button fx:id="loginButton" layoutX="95.0" layoutY="9.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="25.0" prefWidth="377.0" text="Ajoute Product" />
-      <Button fx:id="loginButton1" onAction="#handllogoutButton" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" text="logout" />
-
+      <Button fx:id="loginButton" layoutX="95.0" layoutY="-1.0" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="35.0" prefWidth="101.0" text="Ajoute Product" />
+      <Button fx:id="loginButton1" layoutY="-1.0" mnemonicParsing="false" onAction="#handllogoutButton" prefHeight="35.0" prefWidth="65.0" text="logout" />
+        <Button fx:id="exportButtontxt" layoutX="203.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleExporttxt" prefHeight="17.0" prefWidth="65.0" text="export" />
+        <Button fx:id="importButtontxt" layoutX="274.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleImporttxt" prefHeight="25.0" prefWidth="65.0" text="import" />
     </children>
 
 </AnchorPane>

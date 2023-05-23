@@ -3,12 +3,13 @@
 <!-- addform.fxml -->
 
 <?import javafx.collections.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane prefHeight="229.0" prefWidth="277.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.emsi.product_app.Views.AddProductController">
+<GridPane alignment="CENTER" prefHeight="271.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.emsi.product_app.Views.AddProductController">
     <Label text="Nom:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-    <TextField fx:id="nomField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+    <TextField fx:id="nomField" alignment="CENTER" prefHeight="25.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
     <Label text="Prix:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
     <TextField fx:id="prixField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -20,15 +21,15 @@
     <TextField fx:id="quantiteField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
     <Label text="Catégorie:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
-    <ComboBox fx:id="categorieComboBox" GridPane.columnIndex="1" GridPane.rowIndex="4">
+    <ComboBox fx:id="categorieComboBox" prefHeight="25.0" prefWidth="179.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <items>
             <FXCollections fx:factory="observableArrayList">
             </FXCollections>
         </items>
     </ComboBox>
 
-    <Button onAction="#handleAddButton" text="Ajouter" GridPane.columnSpan="2" GridPane.rowIndex="10" />
-   <Button onAction="#handlebackButton" fx:id="loginButton" mnemonicParsing="false" text="back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+    <Button onAction="#handleAddButton" prefHeight="23.0" prefWidth="59.0" text="Ajouter" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+   <Button fx:id="loginButton" mnemonicParsing="false" onAction="#handlebackButton" prefHeight="16.0" prefWidth="68.0" text="back" GridPane.columnIndex="1" GridPane.rowIndex="10" />
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -43,7 +44,12 @@
       <RowConstraints />
       <RowConstraints />
       <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
+      <RowConstraints maxHeight="25.0" minHeight="5.0" prefHeight="25.0" />
+      <RowConstraints maxHeight="25.0" minHeight="5.0" prefHeight="25.0" />
+      <RowConstraints maxHeight="20.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="20.0" minHeight="0.0" prefHeight="0.0" />
    </rowConstraints>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </GridPane>

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="4883513b-58ef-4afe-88a1-deba92301b28" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/AddProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/AddProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/AddProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/Authentification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/Authentification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/EditProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/EditProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/TableProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/TableProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/TableProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/emsi/product_app/Views/TableProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/AddProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/AddProduct.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/Authentification.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/Authentification.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/TableProduct.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/emsi/product_app/Views/TableProduct.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,21 +48,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/moham/Desktop/Home/java/PRODUCT_APP/src/main/java/com/emsi/product_app/Views&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/moham/Desktop/Home/java/PRODUCT_APP/src/main/resources/com/emsi/product_app/Views&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_directory_selection": "C:/Users/moham/Desktop/Home/java/PRODUCT_APP/src/main/java/com/emsi/product_app/Views",
+    "last_opened_file_path": "C:/Users/moham/Desktop/Home/java/PRODUCT_APP/src/main/resources/com/emsi/product_app/Views",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\moham\Desktop\Home\java\PRODUCT_APP\src\main\resources\com\emsi\product_app\Views" />
@@ -87,7 +93,11 @@
       <option name="presentableId" value="Default" />
       <updated>1684670693531</updated>
       <workItem from="1684670695724" duration="27393000" />
-      <workItem from="1684794193815" duration="1417000" />
+      <workItem from="1684794193815" duration="1841000" />
+      <workItem from="1684828104840" duration="2161000" />
+      <workItem from="1684831820763" duration="4576000" />
+      <workItem from="1684846505043" duration="112000" />
+      <workItem from="1684847443744" duration="1084000" />
     </task>
     <servers />
   </component>

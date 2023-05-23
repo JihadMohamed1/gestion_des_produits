@@ -11,7 +11,7 @@ public class AddProduct extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Authentification.class.getResource("AddProduct.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 400, 300);
         stage.setTitle("AddProduct");
         stage.setScene(scene);
         stage.show();

@@ -1,8 +1,10 @@
 package com.emsi.product_app.Views;
 import com.emsi.Maven.jdbc.Entites.Categorie;
 import com.emsi.Maven.jdbc.Entites.Product;
+import com.emsi.Maven.jdbc.Services.CategorieServices;
 import com.emsi.Maven.jdbc.Services.ProductServices;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,14 +14,22 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.*;
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public class TableProductController {
 
 
+    @FXML
+    private Button importButtontxt;
 
+    @FXML
+    private Button exportButtontxt;
     @FXML
     private TableView<Product> tableView;
     @FXML
@@ -185,5 +195,74 @@ public void handleAddButton()
             e.printStackTrace();
         }
     }
+
+
+    @FXML
+    private void handleImporttxt(ActionEvent event) {
+        CategorieServices categorieServices=new CategorieServices();
+        ProductServices productServices=new ProductServices();
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select a text file to import");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+
+        File selectedFile = fileChooser.showOpenDialog(importButtontxt.getScene().getWindow());
+
+
+        if (selectedFile != null) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(selectedFile))) {
+                tableView.getItems().clear();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
+
+                        String nom = parts[0];
+                        double prix = Double.parseDouble(parts[1]);
+                        String description = parts[2];
+                        int quantite = Integer.parseInt(parts[3]);
+                        String categorie = parts[4];
+                        // Parse and convert dateNaiss from parts[7]
+                        Product product=new Product(nom,prix,description,quantite,categorieServices.findByName(categorie));
+                        productServices.save(product);
+
+
+                }
+                tableView.getItems().clear();
+                tableView.getItems().addAll(productServices.findAll());
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+    @FXML
+    private void handleExporttxt(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select a file to export");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+
+        File selectedFile = fileChooser.showSaveDialog(exportButtontxt.getScene().getWindow());
+        if (selectedFile != null) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(selectedFile))) {
+                List<Product> products = tableView.getItems();
+                for (Product product : products) {
+                    String line =  product.getNom() + "," + product.getPrix() + "," +
+                            product.getDescription() + "," + product.getQuantite() + "," + product.getCategorie().getNom() ;
+                    writer.write(line);
+                    writer.newLine();
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+
+
+
 
 }
