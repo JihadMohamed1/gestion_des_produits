@@ -4,6 +4,11 @@ import com.emsi.Maven.jdbc.Entites.Product;
 import com.emsi.Maven.jdbc.Services.CategorieServices;
 import com.emsi.Maven.jdbc.Services.ProductServices;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,10 +21,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 
 import java.io.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TableProductController {
@@ -36,7 +45,10 @@ public class TableProductController {
     private Button loginButton;
     @FXML
     private Button loginButton1;
-
+    @FXML
+    private Button exportButtonexl;
+    @FXML
+    private Button importButtonexl;
     public void initialize() {
         ProductServices productServices=new ProductServices();
         // Configurer les colonnes du tableau
@@ -223,7 +235,8 @@ public void handleAddButton()
                         // Parse and convert dateNaiss from parts[7]
                         Product product=new Product(nom,prix,description,quantite,categorieServices.findByName(categorie));
                         productServices.save(product);
-
+                    tableView.getItems().clear();
+                    tableView.getItems().addAll(productServices.findAll());
 
                 }
                 tableView.getItems().clear();
@@ -260,6 +273,96 @@ public void handleAddButton()
             }
         }
     }
+    @FXML
+    private void handleImportexl(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        ProductServices productServices=new ProductServices();
+        CategorieServices categorieServices=new CategorieServices();
+        fileChooser.setTitle("Select an Excel file to import");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
+
+        File selectedFile = fileChooser.showOpenDialog(importButtonexl.getScene().getWindow());
+        if (selectedFile != null) {
+            try (Workbook workbook = WorkbookFactory.create(selectedFile)) {
+                Sheet sheet = workbook.getSheetAt(0);
+
+                List<Product> importedProduct = new ArrayList<>();
+                for (Row row : sheet) {
+                    String nom = String.valueOf(row.getCell(0));
+                    System.out.println("here "+nom);
+                    String prix = String.valueOf(row.getCell(1));
+                    System.out.println("here "+prix);
+                    String description = String.valueOf(row.getCell(2));
+                    System.out.println("here "+description);
+                    Double quantite = Double.parseDouble(String.valueOf(row.getCell(3)));
+
+
+                    System.out.println("here "+ quantite);
+                    String categorie = String.valueOf(row.getCell(4));
+                    System.out.println("here "+categorie);
+                    Product product = new Product(nom,Double.parseDouble(prix),description,(int) quantite.intValue(),categorieServices.findByName(categorie));
+                    productServices.save(product);
+
+
+                    tableView.getItems().clear();
+                    tableView.getItems().addAll(productServices.findAll());
+                }
+
+                // Use the importedPersons list as needed (e.g., update UI or save to a database)
+
+
+            } catch (IOException e) {
+                System.out.println("**************************************************"+e);
+                e.printStackTrace();
+                System.out.println("**************************************************");
+
+
+            }
+        }
+    }
+
+
+
+    @FXML
+    private void handleExportexl(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select a file to export");
+        ProductServices productServices=new ProductServices();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx"));
+
+
+        File selectedFile = fileChooser.showSaveDialog(exportButtonexl.getScene().getWindow());
+        if (selectedFile != null) {
+            try (Workbook workbook = new XSSFWorkbook()) {
+                Sheet sheet = workbook.createSheet("Person Data");
+
+                List<Product> products = tableView.getItems();
+                int rowNum = 0;
+                for (Product product : products) {
+                    Row row = sheet.createRow(rowNum++);
+                    row.createCell(0).setCellValue(product.getNom());
+                    row.createCell(1).setCellValue(product.getPrix());
+                    row.createCell(2).setCellValue(product.getDescription());
+                    row.createCell(3).setCellValue(product.getQuantite());
+                    row.createCell(4).setCellValue(product.getCategorie().getNom());
+
+                }
+
+                try (FileOutputStream outputStream = new FileOutputStream(selectedFile)) {
+                    workbook.write(outputStream);
+                    tableView.getItems().clear();
+                    tableView.getItems().addAll(productServices.findAll());
+                }
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+    }
+
+
 
 
 

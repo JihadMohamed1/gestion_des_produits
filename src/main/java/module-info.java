@@ -3,6 +3,7 @@ module com.emsi.product_app {
     requires javafx.fxml;
     requires javafx.base;
     requires java.sql;
+    requires org.apache.poi.ooxml;
 
 
     opens com.emsi.product_app to javafx.fxml;
